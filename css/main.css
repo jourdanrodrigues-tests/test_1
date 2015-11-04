@@ -1,7 +1,14 @@
 * {
-  outline: none; }
+  outline: none !important; }
 
 body {
+  margin-top: 70px;
   opacity: 0; }
+
+.navbar-brand {
+  cursor: default; }
+
+.nav.navbar-nav li {
+  cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */

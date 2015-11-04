@@ -10,8 +10,10 @@ ehthumbs.db
 *.msm
 *.msp
 *.lnk
-*.scss
 *.css.map
+
+# Folders
+nbproject/private/
 
 # =========================
 # Operating System Files

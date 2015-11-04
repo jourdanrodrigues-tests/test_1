@@ -38,7 +38,7 @@ function swal($var){
 }
 function AJAXReturn($var){
     $obj=json_decode(fixJSON($var));
-    echo "<span class='retorno' data-type='$obj->type'>$obj->msg</span>";
+    echo '{"type":"'.$obj->type.'","msg":"'.$obj->msg.'"}';
 }
 function fixJSON($var){
     return str_replace("'","\"",$var);
