@@ -19,10 +19,10 @@ if(post("request")==="htmlContent") echo "
             </p>
             <div class='btn-group btn-group-justified' role='group' aria-label='...'>
                 <div class='btn-group' role='group'>
-                    <button class='btn btn-primary'>Go go</button>
+                    <button class='btn btn-primary'>Cadastrar</button>
                 </div>
                 <div class='btn-group' role='group'>
-                    <input type='reset' class='btn btn-warning' value='Reset'>
+                    <input type='reset' class='btn btn-warning' value='Limpar campos'>
                 </div>
             </div>
         </form>

@@ -10,15 +10,15 @@ class People extends Connection{
         $this->age=$obj->age;
     }
     public function signUp(){
-        if($this->checkExistence("people","email",$this->email)===true){
+        if($this->checkExistence("people","name",$this->name)===true||$this->checkExistence("people","email",$this->email)===true)
             AJAXReturn("{'type':'error','msg':'Já existe cadastro com esse nome ou e-mail!'}");
-            return;
+        else{
+            $conn=$this->connect();
+            $signUp=$conn->prepare("insert into people(name,email,age) values (?,?,?)");
+            $signUp->bind_param("ssd",$this->name,$this->email,$this->age);
+            if(!$signUp->execute()) AJAXReturn("{'type':'error','msg':'Não foi possível realizar o cadastro:<p>($signUp->errno) $signUp->error</p>'}");
+            else AJAXReturn("{'type':'success','msg':'Cadastro realizado com sucesso!'}");
         }
-        $conn=$this->connect();
-        $signUp=$conn->prepare("insert into people(name,email,age) values (?,?,?)");
-        $signUp->bind_param("ssd",$this->name,$this->email,$this->age);
-        if(!$signUp->execute()) AJAXReturn("{'type':'error','msg':'Não foi possível realizar o cadastro:<p>($signUp->errno) $signUp->error</p>'}");
-        else AJAXReturn("{'type':'success','msg':'Cadastro realizado com sucesso!'}");
     }
     public function getPeople(){
         $conn=$this->connect();

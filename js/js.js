@@ -4,15 +4,14 @@ $(document).ready(function(){
 });
 function formSubmit(){
     signUp();
-    loadContent('list');
     return false;
 }
 function loadContent(action){
+    $("."+action+" a").html("Aguarde...");
     if(action==="signup"){
         $(".signup").addClass("active");
         $(".list").removeClass("active");
     }else if(action==="list"){
-        $(".list a").html("Aguarde...");
         $(".list").addClass("active");
         $(".signup").removeClass("active");
     }
@@ -21,24 +20,25 @@ function loadContent(action){
         type:"post",
         url:"php/content/"+action+".php",
         success:function(data){
-            if(!$(".panel").hasClass("panel-primary"))
-                $(".panel").removeClass("panel-danger").addClass("panel-primary");
+            if(!$(".panel").hasClass("panel-primary")) $(".panel").removeClass("panel-danger").addClass("panel-primary");
             $(".panel").html(data);
-            if($(data).filter(".panel-heading").html()==="Lista de inscritos")
-                $(".list a").html("Visualizar cadastros");
+            delay(data);
             fadeIn();
         },
         error:function(){
-            if(!$(".panel").hasClass("panel-danger"))
-                $(".panel").removeClass("panel-primary").addClass("panel-danger");
+            if(!$(".panel").hasClass("panel-danger")) $(".panel").removeClass("panel-primary").addClass("panel-danger");
             $(".panel").html(erro[0]);
-            if($(data).filter(".panel-heading").html()==="Lista de inscritos")
-                $(".list a").html("Visualizar cadastros");
+            delay(data);
             fadeIn();
         }
     });
 }
+function delay(data){
+    if($(data).filter(".panel-heading").html()==="Lista de inscritos") $(".list a").html("Visualizar cadastros");
+    else $(".signup a").html("Novo cadastro");
+}
 function signUp(){
+    $(".btn-primary").html("Aguarde...");
     $.ajax({
         data:{
             request:"signUp",
@@ -50,9 +50,10 @@ function signUp(){
         url:"php/content/signup.php",
         success:function(data){
             var obj=JSON.parse(data);
-            swal({title:obj.msg,type:obj.type});
+            swal({title:obj.msg,type:obj.type},function(){$(".btn-primary").html("Cadastrar");});
+            if(obj.type!=="error") loadContent('list');
         },
-        error:function(){swal({title:erro[1],type:"error"});}
+        error:function(){swal({title:erro[1],type:"error"},function(){$(".btn-primary").html("Cadastrar");});}
     });
 }
 function fadeIn(){$("body").fadeTo(600, 1,"swing");}
