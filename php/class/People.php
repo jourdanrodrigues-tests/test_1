@@ -27,6 +27,6 @@ class People extends Connection{
         $query->bind_result($colName,$colEmail,$colAge,$colId);
         $result="{'people':[";
         while($query->fetch()) $result.="{'name':'$colName','email':'$colEmail','age':'$colAge'},";
-        return fixJSON(str_replace(",]}","]}",$result."]}"));
+        echo fixJSON(str_replace(",]}","]}",$result."]}"));
     }
 }

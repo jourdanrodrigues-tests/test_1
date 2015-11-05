@@ -10,7 +10,7 @@
         <?php
             require_once("php/mainFunctions.php");
             loadFiles("{'css':['bootstrap','sweetalert','main']}");
-            loadFiles("{'js':['libs/jQuery','libs/bootstrap','libs/sweetalert','var','js']}");
+            loadFiles("{'js':['libs/jQuery','libs/bootstrap','libs/sweetalert','var','content','js']}");
         ?>
     </head>
     <body class="col-lg-12">
