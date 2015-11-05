@@ -8,4 +8,4 @@ echo "
     <div class='panel-body'>
     <table class='table'><thead><tr><th>Nome</th><th>Email</th><th>Idade</th></tr></thead><tbody>";
 foreach($obj->people as $guy) echo "<tr><td>$guy->name</td><td>$guy->email</td><td>$guy->age</td></tr>";
-echo "</tbody></table>";
+echo "</tbody></table></div>";

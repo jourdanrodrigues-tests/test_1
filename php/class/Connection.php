@@ -20,9 +20,9 @@ class Connection {
         if(mysqli_connect_errno()) AJAXReturn("{'type':'error','msg':'Falha ao se conectar ao MySQL:<p>($conn->connect_errno)</p><p>$conn->connect_error</p>'}");
         else return $conn;
     }
-    public function checkExistence($target,$field,$value){
+    public function checkExistence($table,$field,$value){
         $mysqli=$this->connect();
-        $query=$mysqli->prepare("select * from $target where $field=?");
+        $query=$mysqli->prepare("select * from $table where $field=?");
         $query->bind_param("s",$value);
         $query->execute();
         $query->store_result();
