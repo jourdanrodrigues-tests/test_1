@@ -9,7 +9,7 @@
             loadFiles("{'js':['libs/jQuery','libs/bootstrap','libs/sweetalert','var','content','js']}");
         ?>
     </head>
-    <body class="col-lg-12">
+    <body>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -21,7 +21,7 @@
                     </button>
                     <a class="navbar-brand">Deway Project</a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height:1px;">
                     <ul class="nav navbar-nav">
                         <li class="signup active"><a onclick="loadContent('signup')">Novo cadastro</a></li>
                         <li class="list"><a onclick="loadContent('list')">Visualizar cadastros</a></li>
@@ -29,6 +29,6 @@
                 </div>
             </div>
         </nav>
-        <div class="container col-lg-6 col-lg-offset-3"><div class='panel'></div></div>
+        <div class="container col-md-6 col-md-offset-3 col-xs-12"><div class='panel'></div></div>
     </body>
 </html>
