@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Deway Project</title>
-        <meta charset="utf-8" />
         <?php
             require_once("php/mainFunctions.php");
             loadFiles("{'css':['bootstrap','sweetalert','main']}");
