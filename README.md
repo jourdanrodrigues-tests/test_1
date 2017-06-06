@@ -1,4 +1,7 @@
-# Projeto Deway
-<b>Solicitação:</b>
-<p>Criar um sistema em que o usuário vai digitar "nome", "e-mail" e "idade" de pessoas que ele vai cadastrar.
-Ao cadastrar cada pessoa, o usuário será levado a uma listagem das pessoas já cadastradas.</p>
+# Test Project
+<b>Requirement:</b>
+<p>Create a system where the user will fulfill "name", "e-mail" and "age" of people he is going to register.
+When a person is registered, the system shows the list of registered users.</p>
+
+<b>Considerations:</b>
+<p>The test was enough to make me conquer the role at the company</p>
